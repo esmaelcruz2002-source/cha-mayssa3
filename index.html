@@ -122,15 +122,16 @@
         .couple-photo {
             max-width: 250px;
             width: 65%;
-            aspect-ratio: 1 / 1; /* Mantém o formato quadrado */
-            border-radius: 25px; /* Bordas arredondadas */
+            aspect-ratio: 1 / 1; /* Garante o quadrado */
+            border-radius: 25px; /* Bordas arredondadas suaves */
             box-shadow: 0 15px 30px rgba(0,0,0,0.5);
             border: 4px solid rgba(255,255,255,0.95);
             
-            /* AQUI ESTÁ A MUDANÇA: */
-            object-fit: contain; /* Mostra a imagem inteira sem cortar */
+            /* --- A MÁGICA ACONTECE AQUI --- */
+            object-fit: cover; /* Preenche todo o espaço (sem barras brancas) */
+            object-position: center 25%; /* Foca nos rostos (evita cortar a cabeça) */
             
-            background-color: #fff; /* Mudei o fundo para branco para ficar mais bonito caso sobre espaço */
+            background-color: #ddd; /* Apenas uma cor de fundo de segurança */
         }
 
         /* --- CONTAINER PRINCIPAL --- */
@@ -582,6 +583,7 @@
 </body>
 
 </html>
+
 
 
 
