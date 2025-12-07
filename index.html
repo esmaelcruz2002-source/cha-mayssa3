@@ -122,12 +122,13 @@
         .couple-photo {
             max-width: 250px;
             width: 65%; /* Tamanho ideal para mobile */
-            height: auto;
-            border-radius: 50% 50% 20px 20px;
+            aspect-ratio: 1 / 1; /* NOVO: Isso força a imagem a ser sempre um quadrado perfeito */
+            border-radius: 25px; /* ALTERADO: Bordas arredondadas simples em todos os cantos */
             box-shadow: 0 15px 30px rgba(0,0,0,0.5);
             border: 4px solid rgba(255,255,255,0.95);
-            object-fit: cover;
+            object-fit: cover; /* Importante: corta a imagem para preencher o quadrado sem esticar */
             background-color: #ddd; 
+        
         }
 
         /* --- CONTAINER PRINCIPAL --- */
@@ -579,4 +580,5 @@
 </body>
 
 </html>
+
 
