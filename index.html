@@ -8,130 +8,306 @@
     
     <style>
         /* --- TEMA MARROM TERRA / CHOCOLATE --- */
-        :root { --cor-principal: #6d4c41; --cor-fundo: #faf7f2; --cor-texto: #4a4a4a; --cor-destaque: #a1887f; --cor-botao-verde: #5cb85c; --cor-borda: #d7ccc8; }
-        body { font-family: 'Roboto', sans-serif; background-color: var(--cor-fundo); color: var(--cor-texto); margin: 0; padding: 0; line-height: 1.6; }
-        
-        /* CABEÇALHO */
-        header { 
-            background-color: var(--cor-principal); 
-            color: white; 
-            text-align: center; 
-            padding: 80px 20px; 
+        :root { 
+            --cor-principal: #6d4c41;     
+            --cor-fundo: #faf7f2;         
+            --cor-texto: #4a4a4a;         
+            --cor-destaque: #a1887f;      
+            --cor-botao-verde: #27ae60;
+            --cor-borda: #d7ccc8;
+        }
+
+        html { scroll-behavior: smooth; } /* Rolagem suave no celular */
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased; /* Deixa a fonte mais nítida no iPhone */
+        }
+
+        /* --- CABEÇALHO --- */
+        header {
+            background-color: var(--cor-principal);
+            color: white;
+            text-align: center;
+            padding: 60px 20px 90px; /* Ajustado para mobile */
             background-image: 
-                linear-gradient(to bottom, rgba(109, 76, 65, 0.85), rgba(109, 76, 65, 0.7)), 
-                url('biblia.jpeg'), url('biblia.jpg'), url('biblia.png'), url('biblia.webp'); 
+                linear-gradient(to bottom, rgba(109, 76, 65, 0.9), rgba(109, 76, 65, 0.75)), 
+                url('biblia.jpeg'), url('biblia.jpg'), url('biblia.png'), url('biblia.webp');
             background-size: cover; 
-            background-position: center; 
-            position: relative; 
-            z-index: 1; 
+            background-position: center;
+            position: relative;
+            z-index: 1;
         }
 
-        @media print { header, .btn-voltar, .submit-btn, .nav-btn, h2, .versiculo-final, .warning-box, .welcome-text { display: none !important; } body { background: white; } .container { box-shadow: none; border: none; margin: 0; padding: 0; min-height: auto; } #thank-you-card { border: 2px solid #000; break-inside: avoid; } }
+        /* Esconde elementos na impressão */
+        @media print { 
+            header, .btn-voltar, .submit-btn, .nav-btn, h2, .versiculo-final, .warning-box, .welcome-text, .countdown-box, .event-info { display: none !important; } 
+            body { background: white; } 
+            .container { box-shadow: none; border: none; margin: 0; padding: 0; min-height: auto; } 
+            #thank-you-card { border: 2px solid #000; break-inside: avoid; } 
+        }
 
-        h1 { font-family: 'Playfair Display', serif; font-size: 3.5em; margin: 0; font-weight: 700; letter-spacing: 1px; text-shadow: 2px 2px 15px rgba(0,0,0,0.9); line-height: 1.1; }
-        .welcome-text { font-size: 1.25em; max-width: 800px; margin: 20px auto; font-weight: 400; text-shadow: 1px 1px 8px rgba(0,0,0,0.9); line-height: 1.6; }
-        
-        /* DATA E LOCAL */
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8em; /* Tamanho equilibrado */
+            margin: 0;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 15px rgba(0,0,0,0.9);
+            line-height: 1.1;
+        }
+
+        .welcome-text {
+            font-size: 1.1em;
+            max-width: 800px;
+            margin: 15px auto;
+            font-weight: 400;
+            text-shadow: 1px 1px 8px rgba(0,0,0,0.9); 
+            line-height: 1.5;
+            padding: 0 10px;
+        }
+
+        /* --- BLOCOS DE INFORMAÇÃO (DATA E CONTAGEM) --- */
         .event-info {
-            margin: 25px auto; 
-            padding: 20px; 
-            border-top: 1px solid rgba(255,255,255,0.4); 
-            border-bottom: 1px solid rgba(255,255,255,0.4); 
-            max-width: 700px;
-            background: rgba(0,0,0,0.2);
-            border-radius: 10px;
+            margin: 20px auto; 
+            padding: 15px; 
+            border-top: 1px solid rgba(255,255,255,0.3); 
+            border-bottom: 1px solid rgba(255,255,255,0.3); 
+            max-width: 90%;
+            background: rgba(0,0,0,0.15);
+            border-radius: 12px;
+            backdrop-filter: blur(2px); /* Efeito moderno de vidro */
         }
-        .event-info p { margin: 8px 0; font-size: 1.2em; text-shadow: 1px 1px 5px rgba(0,0,0,0.8); }
+        .event-info p { margin: 5px 0; font-size: 1.1em; text-shadow: 1px 1px 5px rgba(0,0,0,0.9); }
 
-        /* CONTAGEM REGRESSIVA */
         .countdown-box {
-            background: rgba(255, 255, 255, 0.25);
-            padding: 10px 25px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 20px;
             border-radius: 50px;
             display: inline-block;
             margin-top: 15px;
             font-weight: bold;
             font-family: 'Comfortaa';
-            font-size: 1.1em;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-            border: 1px solid rgba(255,255,255,0.4);
+            font-size: 1em;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+            border: 1px solid rgba(255,255,255,0.3);
         }
 
-        .versiculo { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1em; background: rgba(255,255,255,0.15); padding: 20px; border-radius: 15px; margin-top: 30px; display: inline-block; border: 1px solid rgba(255,255,255,0.3); text-shadow: 1px 1px 5px rgba(0,0,0,0.8); max-width: 90%; }
-        
-        .couple-photo-container { margin-top: 30px; text-align: center; position: relative; z-index: 2; }
-        .couple-photo { max-width: 250px; width: 70%; height: auto; border-radius: 50% 50% 20px 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.6); border: 5px solid rgba(255,255,255,0.9); object-fit: cover; background-color: #ddd; }
-        
-        .container { max-width: 800px; margin: -50px auto 40px; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); position: relative; z-index: 10; min-height: 400px; }
-        
-        h2 { font-family: 'Comfortaa', cursive; color: var(--cor-principal); font-weight: 700; }
-        .categoria-titulo { font-family: 'Playfair Display', serif; color: var(--cor-principal); font-size: 1.6em; margin-top: 40px; margin-bottom: 15px; border-bottom: 2px solid #eee; padding-bottom: 5px; }
-        
-        input[type="text"] { font-family: 'Roboto', sans-serif; width: 100%; padding: 15px; border: 2px solid #eee; border-radius: 12px; font-size: 16px; box-sizing: border-box; margin-bottom: 20px; -webkit-appearance: none; }
-        input[type="text"]:focus { outline: none; border-color: var(--cor-principal); }
-        
-        .nav-btn { font-family: 'Comfortaa', cursive; display: block; width: 100%; padding: 20px; margin: 15px 0; background: white; border: 2px solid var(--cor-principal); color: var(--cor-principal); font-size: 1.1em; border-radius: 50px; cursor: pointer; transition: 0.3s; font-weight: bold; -webkit-tap-highlight-color: transparent; }
-        .nav-btn:hover { background: var(--cor-principal); color: white; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        
-        .btn-voltar { background: transparent; border: 2px solid var(--cor-principal); color: var(--cor-principal); padding: 8px 25px; border-radius: 20px; cursor: pointer; font-family: 'Comfortaa'; font-size: 0.95em; display: inline-flex; align-items: center; margin-bottom: 25px; transition: 0.3s; font-weight: bold; position: relative; z-index: 20; }
-        
-        .gift-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
-        .gift-item { font-family: 'Roboto', sans-serif; padding: 15px; border: 1px solid #e0e0e0; border-radius: 12px; text-align: center; cursor: pointer; transition: 0.2s; background-color: white; font-size: 0.95em; }
-        .gift-item:hover { background-color: #fcece6; border-color: var(--cor-principal); }
-        .gift-item.selected { background-color: var(--cor-principal); color: white; transform: scale(1.02); border-color: var(--cor-principal); font-weight: bold; box-shadow: 0 5px 15px rgba(109, 76, 65, 0.3); }
-        .gift-item.taken { background-color: #f0f0f0; color: #aaa; pointer-events: none; border-color: #eee; text-decoration: line-through; opacity: 0.7; }
-        
-        .submit-btn { font-family: 'Comfortaa', cursive; background-color: #27ae60; color: white; border: none; padding: 18px 40px; font-size: 1.2em; border-radius: 50px; cursor: pointer; margin-top: 30px; width: 100%; font-weight: bold; transition: 0.3s; }
-        
-        .hidden { display: none; }
-        .warning-box { background: #fff8e1; color: #795548; border-left: 5px solid #ffc107; padding: 15px; border-radius: 10px; font-size: 0.95em; margin-bottom: 20px; }
-        .pix-box { background: #fbf5f3; padding: 20px; border-radius: 15px; border: 2px dashed var(--cor-principal); margin: 30px 0; text-align: center; word-break: break-all; }
-        
-        .reminder-card { background-color: #fffaf0; border: 2px dashed var(--cor-principal); padding: 20px; border-radius: 15px; margin: 20px auto; max-width: 500px; position: relative; }
-        .reminder-title { font-family: 'Playfair Display', serif; color: var(--cor-principal); font-size: 1.4em; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px; }
-        .reminder-info { font-size: 1.1em; margin: 10px 0; color: #555; }
-        .reminder-value { font-weight: bold; color: var(--cor-principal); font-size: 1.2em; }
-        .reminder-footer { margin-top: 20px; font-size: 0.8em; color: #999; border-top: 1px solid #ddd; padding-top: 10px; }
-
-        /* --- NOVO ESTILO DO AGRADECIMENTO --- */
-        .thank-you-header {
-            animation: fadeIn 1s ease-in;
-        }
-        .thank-you-icon {
-            font-size: 4em;
-            display: block;
-            margin-bottom: 10px;
-            animation: bounce 2s infinite;
-        }
-        .thank-you-title {
+        .versiculo {
             font-family: 'Playfair Display', serif;
-            color: #27ae60;
-            font-size: 2.5em;
-            margin: 0;
-            line-height: 1.2;
+            font-style: italic;
+            font-size: 1em;
+            background: rgba(255,255,255,0.15);
+            padding: 15px;
+            border-radius: 15px;
+            margin-top: 25px;
+            display: inline-block;
+            border: 1px solid rgba(255,255,255,0.3);
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+            max-width: 90%;
         }
+
+        .couple-photo-container {
+            margin-top: 30px;
+            text-align: center;
+            position: relative; 
+            z-index: 2; 
+        }
+
+        .couple-photo {
+            max-width: 250px;
+            width: 65%; /* Tamanho ideal para mobile */
+            height: auto;
+            border-radius: 50% 50% 20px 20px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+            border: 4px solid rgba(255,255,255,0.95);
+            object-fit: cover;
+            background-color: #ddd; 
+        }
+
+        /* --- CONTAINER PRINCIPAL --- */
+        .container {
+            max-width: 800px;
+            margin: -40px 15px 40px; /* Margens laterais seguras para celular */
+            background: white;
+            padding: 30px 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            position: relative;
+            z-index: 10;
+            min-height: 400px;
+        }
+
+        h2 { font-family: 'Comfortaa', cursive; color: var(--cor-principal); font-weight: 700; font-size: 1.4em; }
+        
+        .categoria-titulo {
+            font-family: 'Playfair Display', serif;
+            color: var(--cor-principal);
+            font-size: 1.5em;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        /* INPUT OTIMIZADO PARA MOBILE (Evita zoom automático) */
+        input[type="text"] {
+            font-family: 'Roboto', sans-serif;
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 16px; /* Importante: 16px evita zoom no iOS */
+            box-sizing: border-box; 
+            margin-bottom: 20px;
+            -webkit-appearance: none;
+        }
+        input[type="text"]:focus { outline: none; border-color: var(--cor-principal); background: #fffdfc; }
+
+        /* BOTÕES TOQUE FÁCIL */
+        .nav-btn {
+            font-family: 'Comfortaa', cursive;
+            display: block;
+            width: 100%;
+            padding: 18px;
+            margin: 12px 0;
+            background: white;
+            border: 2px solid var(--cor-principal);
+            color: var(--cor-principal);
+            font-size: 1.05em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.2s;
+            font-weight: bold;
+            -webkit-tap-highlight-color: transparent; /* Remove flash azul no toque */
+        }
+        .nav-btn:active { transform: scale(0.98); background: #fcece6; } /* Feedback visual ao tocar */
+
+        .btn-voltar {
+            background: transparent;
+            border: 2px solid var(--cor-principal);
+            color: var(--cor-principal);
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: 'Comfortaa';
+            font-size: 0.9em;
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* GRADE DE PRESENTES MOBILE */
+        .gift-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(145px, 1fr)); /* Garante 2 colunas em telas pequenas */
+            gap: 10px;
+        }
+
+        .gift-item {
+            font-family: 'Roboto', sans-serif;
+            padding: 15px 5px;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+            background-color: white;
+            font-size: 0.95em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 50px; /* Altura mínima para toque fácil */
+            line-height: 1.2;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .gift-item.selected { 
+            background-color: var(--cor-principal); 
+            color: white; 
+            border-color: var(--cor-principal);
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(109, 76, 65, 0.25);
+            transform: scale(1.02);
+        }
+        .gift-item.taken { 
+            background-color: #f2f2f2; 
+            color: #bbb; 
+            pointer-events: none; 
+            border-color: #f2f2f2;
+            text-decoration: line-through;
+        }
+
+        .submit-btn {
+            font-family: 'Comfortaa', cursive;
+            background-color: var(--cor-botao-verde);
+            color: white;
+            border: none;
+            padding: 18px;
+            font-size: 1.2em;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 30px;
+            width: 100%;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+        }
+        .submit-btn:active { transform: scale(0.98); }
+
+        .hidden { display: none; }
+        
+        .warning-box {
+            background: #fff8e1;
+            color: #795548;
+            border-left: 5px solid #ffc107;
+            padding: 12px; 
+            border-radius: 8px; 
+            font-size: 0.9em;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+        
+        .pix-box {
+            background: #fbf5f3; 
+            padding: 20px; 
+            border-radius: 15px; 
+            border: 2px dashed var(--cor-principal); 
+            margin: 25px 0; 
+            text-align: center;
+            word-wrap: break-word; /* Evita que a chave PIX quebre o layout */
+        }
+
+        /* ESTILOS DA TELA FINAL */
+        .thank-you-header { animation: fadeIn 0.8s ease-out; margin-bottom: 20px; }
+        .thank-you-icon { font-size: 3.5em; display: block; margin-bottom: 5px; animation: bounce 2s infinite; }
+        .thank-you-title { font-family: 'Playfair Display', serif; color: var(--cor-botao-verde); font-size: 2.2em; margin: 0; line-height: 1.1; }
+        
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-20px);}
-            60% {transform: translateY(-10px);}
+            40% {transform: translateY(-15px);}
+            60% {transform: translateY(-7px);}
         }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-        @media (max-width: 600px) {
-            header { padding: 60px 15px 100px; }
-            h1 { font-size: 2.2em; }
-            .welcome-text { font-size: 1em; padding: 0 10px; }
-            .couple-photo { width: 65%; margin-top: 0; } 
-            .container { margin: -40px 10px 20px; padding: 25px 20px; }
-            .gift-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
-            .nav-btn { font-size: 1em; padding: 15px; }
-            .submit-btn { width: 100%; padding: 15px; font-size: 1.1em; }
-            .event-info p { font-size: 1em; }
-            .thank-you-title { font-size: 2em; }
+        .reminder-card {
+            background-color: #fffaf0;
+            border: 2px dashed var(--cor-principal);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px auto;
+            max-width: 100%; /* Ajuste mobile */
+            position: relative;
         }
+        .reminder-title { font-family: 'Playfair Display', serif; color: var(--cor-principal); font-size: 1.3em; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+        .reminder-info { font-size: 1em; margin: 8px 0; color: #555; }
+        .reminder-value { font-weight: bold; color: var(--cor-principal); font-size: 1.2em; }
+        .reminder-footer { margin-top: 15px; font-size: 0.8em; color: #999; border-top: 1px solid #ddd; padding-top: 10px; }
+
     </style>
 </head>
 <body>
@@ -150,12 +326,13 @@
     </div>
 
     <div class="countdown-box">
-        ⏳ Faltam <span id="contador">0</span> dias para o Chá!
+        ⏳ Faltam <span id="contador">0</span> dias!
     </div>
 
     <div class="couple-photo-container">
         <img src="casal.jpg" onerror="this.src='casal.jpeg'" alt="Foto do Casal Mayssa" class="couple-photo">
     </div>
+    
     <div class="versiculo">
         "Se dois de vós concordarem na terra acerca de qualquer coisa que pedirem, isso lhes será feito por meu Pai..." <br>
         <small style="font-family: 'Roboto', sans-serif; font-style: normal; margin-top:5px; display:block;">- Mateus 18:19</small>
@@ -163,36 +340,46 @@
 </header>
 
 <div class="container">
+
     <div id="section-1">
         <h2>Como vocês gostariam de nos abençoar?</h2>
         <p>Antes de escolher, por favor, digite seu nome:</p>
         <input type="text" id="guestName" placeholder="Seu Nome..." required>
-        <p style="margin-top: 30px;">Selecione uma opção abaixo:</p>
+        
+        <p style="margin-top: 25px;">Selecione uma opção abaixo:</p>
         <button class="nav-btn" onclick="goToSection(2)">🎁 Escolher um Presente da Lista</button>
         <button class="nav-btn" onclick="goToSection(3)">✨ Enviar um Pix ou Presente Surpresa</button>
     </div>
 
     <div id="section-2" class="hidden">
-        <button class="btn-voltar" onclick="goToSection(1)">⬅ Voltar ao início</button>
+        <button class="btn-voltar" onclick="goToSection(1)">⬅ Voltar</button>
         <h2>Escolha do Item</h2>
         <p><strong>Descrição:</strong> Toque no item que deseja dar de presente.</p>
-        <div class="warning-box">⚠️ Selecione um item e clique em Enviar. O item sairá da lista automaticamente.</div>
-        <div id="giftListContainer">Carregando lista de presentes...</div>
+        
+        <div class="warning-box">
+            ⚠️ Selecione um item e clique em "Enviar Escolha". O item sairá da lista automaticamente.
+        </div>
+
+        <div id="giftListContainer">Carregando lista...</div>
+
         <button class="submit-btn" onclick="finalizarEnvio('Lista')">Enviar Escolha</button>
     </div>
 
     <div id="section-3" class="hidden">
-        <button class="btn-voltar" onclick="goToSection(1)">⬅ Voltar ao início</button>
-        <h2>Outras Formas de nos Abençoar ❤️</h2>
-        <p>Se você preferir a praticidade, criamos este espaço especial.</p>
+        <button class="btn-voltar" onclick="goToSection(1)">⬅ Voltar</button>
+        <h2>Outras Formas ❤️</h2>
+        <p>Se preferir a praticidade, criamos este espaço.</p>
+        
         <div class="pix-box">
             <h3 style="margin-top:0;">Chave Pix Abençoada:</h3>
-            <p style="font-size: 1.5em; font-weight: bold; color: var(--cor-principal); font-family: 'Roboto', sans-serif; margin: 10px 0;">1198739-3992</p>
+            <p style="font-size: 1.4em; font-weight: bold; color: var(--cor-principal); font-family: 'Roboto', sans-serif; margin: 10px 0;">1198739-3992</p>
             <p style="font-weight: bold; margin: 5px 0;">Mayssa Martha Francisco da Silva</p>
-            <p style="color: #666;"><small>(Confirme os dados antes de enviar)</small></p>
+            <p style="color: #666; font-size: 0.9em;"><small>(Confirme os dados antes de enviar)</small></p>
         </div>
+
         <p>Qual item você escolhe para abençoar o nosso novo lar? (Opcional):</p>
         <input type="text" id="customGift" placeholder="Ex: Vou levar um presente surpresa...">
+
         <button class="submit-btn" onclick="finalizarEnvio('Pix/Outro')">Confirmar</button>
     </div>
 
@@ -202,33 +389,47 @@
             <span class="thank-you-icon">🙌</span>
             <h2 class="thank-you-title">Glória a Deus!</h2>
         </div>
-
-        <div style="margin: 20px auto; padding: 15px; background: #fff; border-radius: 15px; max-width: 600px;">
+        
+        <div style="margin: 20px auto; padding: 15px; background: #fff; border-radius: 15px; max-width: 600px; border: 1px solid #eee;">
             <p style="font-size: 1.05em; line-height: 1.6; color: #555;">
-                Não tenho palavras para agradecer... ❤️ <br>
+                Não tenho palavras para agradecer... ❤️ <br><br>
                 Ver o seu carinho com a gente nos faz sentir o quanto somos amados. Que Deus multiplique infinitamente na sua vida! <br>
-                Obrigada por tanto!
+                <strong>Obrigada por tanto!</strong>
             </p>
         </div>
+
         <div id="thank-you-card" class="reminder-card">
             <div class="reminder-title">Lembrete do Presente</div>
             <div style="border-bottom: 1px solid #eee; margin-bottom: 15px;"></div>
+            
             <p class="reminder-info">Convidado(a):</p>
             <p class="reminder-value" id="card-name">Nome</p>
+            
             <p class="reminder-info" style="margin-top:15px;">Item Escolhido:</p>
             <p class="reminder-value" id="card-item" style="color: #27ae60;">Item</p>
+            
             <div class="reminder-footer">Chá da Mayssa • Deus Abençoe!</div>
         </div>
-        <p style="color: #999; font-size: 0.9em; margin-top: 10px;">📸 <em>Tire um print para guardar!</em></p>
-        <br>
-        <div class="versiculo-final" style="color: #555; background: #eee; border-radius: 10px; padding: 10px; display: inline-block;">"Deus te abençoe grandemente!"</div>
+
+        <p style="color: #999; font-size: 0.9em; margin-top: 15px;">📸 <em>Tire um print da tela para guardar!</em></p>
+        
+        <button class="nav-btn" onclick="window.print()" style="width: auto; display: inline-block; padding: 10px 25px; margin-top: 10px; font-size: 0.9em;">
+            🖨️ Imprimir
+        </button>
+        
+        <br><br>
+        <div class="versiculo-final" style="color: #888; background: #f5f5f5; border-radius: 10px; padding: 10px 20px; display: inline-block; font-size: 0.9em;">
+            "Deus te abençoe grandemente!"
+        </div>
     </div>
+
 </div>
 
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
     import { getFirestore, collection, addDoc, onSnapshot, query, where } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
+    // --- SUAS CHAVES DO FIREBASE ---
     const firebaseConfig = {
       apiKey: "AIzaSyB3JVacaEdp0xjHjd8faxmqPu3vJX9TS8M",
       authDomain: "cha-cozinha-mayssa.firebaseapp.com",
@@ -242,9 +443,9 @@
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
-    // --- LÓGICA DA CONTAGEM REGRESSIVA ---
+    // --- CONTAGEM REGRESSIVA ---
     function iniciarContagem() {
-        const dataCha = new Date(2026, 0, 25); // Ano 2026, Mês 0 (Janeiro), Dia 25
+        const dataCha = new Date(2026, 0, 25); // 25 Jan 2026
         const hoje = new Date();
         const diferenca = dataCha - hoje;
         const dias = Math.ceil(diferenca / (1000 * 60 * 60 * 24));
@@ -253,8 +454,9 @@
             elemento.innerText = dias > 0 ? dias : 0;
         }
     }
-    iniciarContagem(); 
+    iniciarContagem();
 
+    // --- LISTA DE PRESENTES ---
     const categorias = {
         "Eletrodomésticos": ["Liquidificador", "Ferro de Passar", "Sanduicheira", "Ventilador", "Cafeteira"],
         "Utensílios de Cozinha": ["Jogo de Panelas", "Panela de Pressão", "Frigideira", "Cuscuzeira", "Faqueiro (Dia a dia)", "Kit de Conchas (Silicone)", "Jogo de Xícaras", "Jogo de Copos", "Garrafa Térmica", "Assadeira (Tabuleiro)", "Forma de Bolo", "Forma de Pão", "Tábua de Corte", "Ralador", "Potes Plásticos", "Fruteira", "Escorredor de Louça", "Abridor de Latas", "Espremedor de Alho", "Espremedor de Limão", "Peneira", "Fouet (Batedor)", "Descascador de Legumes", "Concha de Sorvete", "Forminhas de Gelo", "Saladeira", "Açucareiro e Saleiro"],
@@ -265,6 +467,7 @@
     let itemSelecionado = null;
     let itensJaComprados = [];
 
+    // ATUALIZAÇÃO EM TEMPO REAL
     const q = query(collection(db, "presentes_escolhidos"));
     onSnapshot(q, (snapshot) => {
         itensJaComprados = [];
@@ -309,6 +512,7 @@
         }
     }
 
+    // FUNÇÕES DE AÇÃO
     window.selecionar = function(elemento, nome) {
         document.querySelectorAll('.gift-item').forEach(e => e.classList.remove('selected'));
         elemento.classList.add('selected');
