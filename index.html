@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     
     <style>
+        /* --- TEMA MARROM TERRA / CHOCOLATE --- */
         :root { --cor-principal: #6d4c41; --cor-fundo: #faf7f2; --cor-texto: #4a4a4a; --cor-destaque: #a1887f; --cor-botao-verde: #5cb85c; --cor-borda: #d7ccc8; }
         body { font-family: 'Roboto', sans-serif; background-color: var(--cor-fundo); color: var(--cor-texto); margin: 0; padding: 0; line-height: 1.6; }
         
@@ -15,7 +16,7 @@
             background-color: var(--cor-principal); 
             color: white; 
             text-align: center; 
-            padding: 80px 20px; /* Reduzi um pouco para mobile */
+            padding: 80px 20px; 
             background-image: 
                 linear-gradient(to bottom, rgba(109, 76, 65, 0.85), rgba(109, 76, 65, 0.7)), 
                 url('biblia.jpeg'), url('biblia.jpg'), url('biblia.png'), url('biblia.webp'); 
@@ -29,6 +30,33 @@
 
         h1 { font-family: 'Playfair Display', serif; font-size: 3.5em; margin: 0; font-weight: 700; letter-spacing: 1px; text-shadow: 2px 2px 15px rgba(0,0,0,0.9); line-height: 1.1; }
         .welcome-text { font-size: 1.25em; max-width: 800px; margin: 20px auto; font-weight: 400; text-shadow: 1px 1px 8px rgba(0,0,0,0.9); line-height: 1.6; }
+        
+        /* DATA E LOCAL */
+        .event-info {
+            margin: 25px auto; 
+            padding: 20px; 
+            border-top: 1px solid rgba(255,255,255,0.4); 
+            border-bottom: 1px solid rgba(255,255,255,0.4); 
+            max-width: 700px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 10px;
+        }
+        .event-info p { margin: 8px 0; font-size: 1.2em; text-shadow: 1px 1px 5px rgba(0,0,0,0.8); }
+
+        /* CONTAGEM REGRESSIVA */
+        .countdown-box {
+            background: rgba(255, 255, 255, 0.25);
+            padding: 10px 25px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-top: 15px;
+            font-weight: bold;
+            font-family: 'Comfortaa';
+            font-size: 1.1em;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+            border: 1px solid rgba(255,255,255,0.4);
+        }
+
         .versiculo { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1em; background: rgba(255,255,255,0.15); padding: 20px; border-radius: 15px; margin-top: 30px; display: inline-block; border: 1px solid rgba(255,255,255,0.3); text-shadow: 1px 1px 5px rgba(0,0,0,0.8); max-width: 90%; }
         
         .couple-photo-container { margin-top: 30px; text-align: center; position: relative; z-index: 2; }
@@ -39,7 +67,6 @@
         h2 { font-family: 'Comfortaa', cursive; color: var(--cor-principal); font-weight: 700; }
         .categoria-titulo { font-family: 'Playfair Display', serif; color: var(--cor-principal); font-size: 1.6em; margin-top: 40px; margin-bottom: 15px; border-bottom: 2px solid #eee; padding-bottom: 5px; }
         
-        /* Input ajustado para não dar zoom no iPhone */
         input[type="text"] { font-family: 'Roboto', sans-serif; width: 100%; padding: 15px; border: 2px solid #eee; border-radius: 12px; font-size: 16px; box-sizing: border-box; margin-bottom: 20px; -webkit-appearance: none; }
         input[type="text"]:focus { outline: none; border-color: var(--cor-principal); }
         
@@ -66,37 +93,66 @@
         .reminder-value { font-weight: bold; color: var(--cor-principal); font-size: 1.2em; }
         .reminder-footer { margin-top: 20px; font-size: 0.8em; color: #999; border-top: 1px solid #ddd; padding-top: 10px; }
 
-        /* --- AJUSTES ESPECIAIS PARA CELULAR (RESPONSIVO) --- */
+        /* --- NOVO ESTILO DO AGRADECIMENTO --- */
+        .thank-you-header {
+            animation: fadeIn 1s ease-in;
+        }
+        .thank-you-icon {
+            font-size: 4em;
+            display: block;
+            margin-bottom: 10px;
+            animation: bounce 2s infinite;
+        }
+        .thank-you-title {
+            font-family: 'Playfair Display', serif;
+            color: #27ae60;
+            font-size: 2.5em;
+            margin: 0;
+            line-height: 1.2;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-20px);}
+            60% {transform: translateY(-10px);}
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         @media (max-width: 600px) {
-            header { padding: 60px 15px 100px; } /* Mais espaço embaixo para a foto */
-            h1 { font-size: 2.2em; } /* Título menor para não quebrar */
+            header { padding: 60px 15px 100px; }
+            h1 { font-size: 2.2em; }
             .welcome-text { font-size: 1em; padding: 0 10px; }
             .couple-photo { width: 65%; margin-top: 0; } 
-            
-            .container { 
-                margin: -40px 10px 20px; /* Margem lateral menor */
-                padding: 25px 20px; /* Padding interno menor */
-            }
-            
-            .gift-grid { grid-template-columns: 1fr 1fr; /* 2 colunas no celular */ gap: 10px; }
-            .gift-item { padding: 12px 5px; font-size: 0.9em; }
-            
+            .container { margin: -40px 10px 20px; padding: 25px 20px; }
+            .gift-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
             .nav-btn { font-size: 1em; padding: 15px; }
             .submit-btn { width: 100%; padding: 15px; font-size: 1.1em; }
-            
-            .pix-box p { font-size: 1.2em !important; } /* Chave pix ajustada */
+            .event-info p { font-size: 1em; }
+            .thank-you-title { font-size: 2em; }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Chá de Cozinha Mayssa</h1>
+    <h1>Chá de Casa Nova da Mayssa</h1>
     <div class="welcome-text">
         Sejam muito bem-vindos ao começo do nosso sonho! <br><br>
         Estamos preparando cada detalhe do nosso novo lar com muito amor. <br>
         <strong>Obrigado por fazerem parte da nossa história!</strong>
     </div>
+
+    <div class="event-info">
+        <p> <strong>Data:</strong> 25 de Janeiro de 2026 às 13:00h</p>
+        <p> <strong>Local:</strong> Rua Imirim, 75 - Fátima, Jandira</p>
+    </div>
+
+    <div class="countdown-box">
+        ⏳ Faltam <span id="contador">0</span> dias para o Chá!
+    </div>
+
     <div class="couple-photo-container">
         <img src="casal.jpg" onerror="this.src='casal.jpeg'" alt="Foto do Casal Mayssa" class="couple-photo">
     </div>
@@ -141,7 +197,12 @@
     </div>
 
     <div id="thank-you-screen" class="hidden" style="text-align: center; padding: 10px;">
-        <h2 style="color: #27ae60; font-size: 2em;">Glória a Deus! 🙌</h2>
+        
+        <div class="thank-you-header">
+            <span class="thank-you-icon">🙌</span>
+            <h2 class="thank-you-title">Glória a Deus!</h2>
+        </div>
+
         <div style="margin: 20px auto; padding: 15px; background: #fff; border-radius: 15px; max-width: 600px;">
             <p style="font-size: 1.05em; line-height: 1.6; color: #555;">
                 Não tenho palavras para agradecer... ❤️ <br>
@@ -168,7 +229,6 @@
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
     import { getFirestore, collection, addDoc, onSnapshot, query, where } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
-    // --- SUAS CHAVES (JÁ CONFIGURADAS) ---
     const firebaseConfig = {
       apiKey: "AIzaSyB3JVacaEdp0xjHjd8faxmqPu3vJX9TS8M",
       authDomain: "cha-cozinha-mayssa.firebaseapp.com",
@@ -182,9 +242,22 @@
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
+    // --- LÓGICA DA CONTAGEM REGRESSIVA ---
+    function iniciarContagem() {
+        const dataCha = new Date(2026, 0, 25); // Ano 2026, Mês 0 (Janeiro), Dia 25
+        const hoje = new Date();
+        const diferenca = dataCha - hoje;
+        const dias = Math.ceil(diferenca / (1000 * 60 * 60 * 24));
+        const elemento = document.getElementById("contador");
+        if(elemento) {
+            elemento.innerText = dias > 0 ? dias : 0;
+        }
+    }
+    iniciarContagem(); 
+
     const categorias = {
         "Eletrodomésticos": ["Liquidificador", "Ferro de Passar", "Sanduicheira", "Ventilador", "Cafeteira"],
-        "Utensílios de Cozinha": ["Jogo de Panelas", "Panela de Pressão", "Frigideira", "Cuscuzeira", "Faqueiro (Dia a dia)", "Kit de Conchas (Silicone)", "Jogo de Xícaras", "Jogo de Copos", "Garrafa Térmica", "Assadeira", "Forma de Bolo", "Forma de Pão", "Tábua de Corte", "Ralador", "Potes Plásticos", "Fruteira", "Escorredor de Louça", "Abridor de Latas", "Espremedor de Alho", "Espremedor de Limão", "Peneira", "Fouet (Batedor)", "Descascador de Legumes", "Concha de Sorvete", "Forminhas de Gelo", "Saladeira", "Açucareiro e Saleiro"],
+        "Utensílios de Cozinha": ["Jogo de Panelas", "Panela de Pressão", "Frigideira", "Cuscuzeira", "Faqueiro (Dia a dia)", "Kit de Conchas (Silicone)", "Jogo de Xícaras", "Jogo de Copos", "Garrafa Térmica", "Assadeira (Tabuleiro)", "Forma de Bolo", "Forma de Pão", "Tábua de Corte", "Ralador", "Potes Plásticos", "Fruteira", "Escorredor de Louça", "Abridor de Latas", "Espremedor de Alho", "Espremedor de Limão", "Peneira", "Fouet (Batedor)", "Descascador de Legumes", "Concha de Sorvete", "Forminhas de Gelo", "Saladeira", "Açucareiro e Saleiro"],
         "Cama, Mesa e Banho": ["Jogo de Cama", "Coberta", "Edredom", "Jogo de Toalhas", "Kit Pia Banheiro", "Tapete Antiderrapante (Box)"],
         "Limpeza e Organização": ["Kit Panos de Prato", "Panos de Chão", "Lixeira de Pia", "Lixeira de Banheiro", "Vassoura e Pá", "Rodo e Balde", "Cesto de Roupa", "Pregadores", "Tapete de Entrada", "Cabides"]
     };
@@ -301,10 +374,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
