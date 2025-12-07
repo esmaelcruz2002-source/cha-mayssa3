@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Chá Cozinha Mayssa</title>
+    <title>Chá de Cozinha Mayssa</title>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     
     <style>
-        /* --- TEMA VERDE #006400 + DOURADO --- */
+        /* --- NOVA PALETA RÚSTICA --- */
         :root { 
-            --cor-principal: #006400;     /* O Verde que você pediu */
-            --cor-fundo: #faf9f6;         /* Um branco levemente off-white */
-            --cor-texto: #2c3e50;         
-            --cor-botao-acao: #d4af37;    /* Dourado para o botão de enviar (Combina muito com verde!) */
-            --cor-borda: #aab7b8;
+            --cor-verde-oliva: #566347;   /* Cabeçalho e Botões de Navegação */
+            --cor-sage: #868653;          /* Detalhes sutis e bordas */
+            --cor-cafe: #3A2116;          /* Textos e Títulos (Contraste forte) */
+            --cor-terracota: #8D6051;     /* Destaques, Botão de Ação e Seleção */
+            
+            --cor-fundo: #faf9f6;         /* Off-white (Fundo geral) */
+            --cor-card-bg: #ffffff;
         }
 
         html { scroll-behavior: smooth; }
@@ -21,7 +23,7 @@
         body {
             font-family: 'Roboto', sans-serif;
             background-color: var(--cor-fundo);
-            color: var(--cor-texto);
+            color: var(--cor-cafe); /* Texto agora é cor de café */
             margin: 0;
             padding: 0;
             line-height: 1.6;
@@ -30,19 +32,19 @@
 
         /* --- CABEÇALHO --- */
         header {
-            background-color: var(--cor-principal);
+            background-color: var(--cor-verde-oliva);
             color: white;
             text-align: center;
             padding: 60px 20px 90px;
-            /* DEGRADÊ AJUSTADO PARA O VERDE */
+            /* Degradê misturando o Verde Oliva com um toque do Café para profundidade */
             background-image: 
-                linear-gradient(to bottom, rgba(0, 60, 0, 0.9), rgba(0, 100, 0, 0.8)), 
+                linear-gradient(to bottom, rgba(86, 99, 71, 0.9), rgba(58, 33, 22, 0.7)), 
                 url('biblia.jpeg'), url('biblia.jpg'), url('biblia.png'), url('biblia.webp');
             background-size: cover; 
             background-position: center;
             position: relative;
             z-index: 1;
-            border-bottom: 5px solid var(--cor-botao-acao); /* Detalhe dourado na borda */
+            border-bottom: 6px solid var(--cor-terracota); /* Faixa Terracota para dividir */
         }
 
         @media print { 
@@ -58,7 +60,7 @@
             margin: 0;
             font-weight: 700;
             letter-spacing: 1px;
-            text-shadow: 2px 2px 15px rgba(0,0,0,0.9);
+            text-shadow: 2px 2px 15px rgba(0,0,0,0.8);
             line-height: 1.1;
             color: #fff;
         }
@@ -68,7 +70,7 @@
             max-width: 800px;
             margin: 15px auto;
             font-weight: 400;
-            text-shadow: 1px 1px 8px rgba(0,0,0,0.9); 
+            text-shadow: 1px 1px 8px rgba(0,0,0,0.8); 
             line-height: 1.5;
             padding: 0 10px;
         }
@@ -80,23 +82,24 @@
             border-top: 1px solid rgba(255,255,255,0.3); 
             border-bottom: 1px solid rgba(255,255,255,0.3); 
             max-width: 90%;
-            background: rgba(0,0,0,0.25);
+            background: rgba(58, 33, 22, 0.3); /* Fundo Café transparente */
             border-radius: 12px;
             backdrop-filter: blur(2px);
         }
         .event-info p { margin: 5px 0; font-size: 1.1em; text-shadow: 1px 1px 5px rgba(0,0,0,0.9); }
 
         .countdown-box {
-            background: rgba(255, 255, 255, 0.9);
-            color: var(--cor-principal);
-            padding: 8px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--cor-verde-oliva);
+            padding: 8px 25px;
             border-radius: 50px;
             display: inline-block;
             margin-top: 15px;
             font-weight: bold;
             font-family: 'Comfortaa';
             font-size: 1em;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            border: 2px solid var(--cor-sage); /* Borda Sage */
         }
 
         .versiculo {
@@ -120,15 +123,14 @@
             z-index: 2; 
         }
 
-        /* FOTO DO CASAL (MANTIDA NO FORMATO ORIGINAL COMPLETO) */
         .couple-photo {
             max-width: 100%;      
             width: auto;          
             max-height: 500px;    
             height: auto;         
             border-radius: 20px;  
-            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
-            border: 4px solid #fff; /* Borda branca para destacar no verde */
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+            border: 5px solid #fff; 
             display: block;
             margin: 0 auto;
         }
@@ -137,21 +139,26 @@
         .container {
             max-width: 800px;
             margin: -40px 15px 40px; 
-            background: white;
+            background: var(--cor-card-bg);
             padding: 30px 20px;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            box-shadow: 0 10px 30px rgba(58, 33, 22, 0.08); /* Sombra cor de café */
             position: relative;
             z-index: 10;
             min-height: 400px;
-            border-top: 5px solid var(--cor-botao-acao); /* Detalhe Dourado */
+            border-top: 5px solid var(--cor-terracota); /* Topo Terracota */
         }
 
-        h2 { font-family: 'Comfortaa', cursive; color: var(--cor-principal); font-weight: 700; font-size: 1.4em; }
+        h2 { 
+            font-family: 'Comfortaa', cursive; 
+            color: var(--cor-cafe); /* Títulos em Marrom Café */
+            font-weight: 700; 
+            font-size: 1.4em; 
+        }
         
         .categoria-titulo {
             font-family: 'Playfair Display', serif;
-            color: var(--cor-principal);
+            color: var(--cor-verde-oliva); /* Categorias em Verde Oliva */
             font-size: 1.5em;
             margin-top: 35px;
             margin-bottom: 15px;
@@ -169,10 +176,11 @@
             box-sizing: border-box; 
             margin-bottom: 20px;
             -webkit-appearance: none;
+            color: var(--cor-cafe);
         }
-        input[type="text"]:focus { outline: none; border-color: var(--cor-botao-acao); background: #fffdfc; }
+        input[type="text"]:focus { outline: none; border-color: var(--cor-terracota); background: #fffbf9; }
 
-        /* BOTÕES */
+        /* BOTÕES DE NAVEGAÇÃO (VERDE OLIVA) */
         .nav-btn {
             font-family: 'Comfortaa', cursive;
             display: block;
@@ -180,8 +188,8 @@
             padding: 18px;
             margin: 12px 0;
             background: white;
-            border: 2px solid var(--cor-principal);
-            color: var(--cor-principal);
+            border: 2px solid var(--cor-verde-oliva);
+            color: var(--cor-verde-oliva);
             font-size: 1.05em;
             border-radius: 50px;
             cursor: pointer;
@@ -189,17 +197,17 @@
             font-weight: bold;
             -webkit-tap-highlight-color: transparent; 
         }
-        /* Efeito ao clicar: Fica verde com texto branco */
         .nav-btn:active, .nav-btn:hover { 
-            background: var(--cor-principal); 
+            background: var(--cor-verde-oliva); 
             color: white; 
             transform: scale(0.98); 
         } 
 
+        /* BOTÃO VOLTAR */
         .btn-voltar {
             background: transparent;
-            border: 2px solid var(--cor-principal);
-            color: var(--cor-principal);
+            border: 2px solid var(--cor-sage);
+            color: var(--cor-sage);
             padding: 8px 20px;
             border-radius: 20px;
             cursor: pointer;
@@ -227,6 +235,7 @@
             cursor: pointer;
             background-color: white;
             font-size: 0.95em;
+            color: var(--cor-cafe);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -234,13 +243,13 @@
             line-height: 1.2;
             -webkit-tap-highlight-color: transparent;
         }
-        /* Item selecionado fica Dourado ou Verde? Vamos de Verde para manter padrão, e botão final Dourado */
+        /* ITEM SELECIONADO: Fica Terracota (Destaque) */
         .gift-item.selected { 
-            background-color: var(--cor-principal); 
+            background-color: var(--cor-terracota); 
             color: white; 
-            border-color: var(--cor-principal);
+            border-color: var(--cor-terracota);
             font-weight: bold;
-            box-shadow: 0 4px 10px rgba(0, 100, 0, 0.25);
+            box-shadow: 0 4px 10px rgba(141, 96, 81, 0.3);
             transform: scale(1.02);
         }
         .gift-item.taken { 
@@ -251,10 +260,10 @@
             text-decoration: line-through;
         }
 
-        /* BOTÃO DE ENVIAR - AGORA DOURADO */
+        /* BOTÃO DE ENVIAR (TERRACOTA - Cor de Ação) */
         .submit-btn {
             font-family: 'Comfortaa', cursive;
-            background-color: var(--cor-botao-acao); /* Dourado */
+            background-color: var(--cor-terracota); 
             color: white;
             border: none;
             padding: 18px;
@@ -264,17 +273,16 @@
             margin-top: 30px;
             width: 100%;
             font-weight: bold;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(141, 96, 81, 0.3);
         }
-        .submit-btn:active { transform: scale(0.98); background-color: #b8962e; }
+        .submit-btn:active { transform: scale(0.98); background-color: #7a5245; }
 
         .hidden { display: none; }
         
         .warning-box {
-            background: #e8f5e9; /* Fundo esverdeado bem claro */
-            color: var(--cor-principal);
-            border-left: 5px solid var(--cor-botao-acao); /* Tarja Dourada */
+            background: #f4f6f0; /* Fundo esverdeado muito leve */
+            color: var(--cor-verde-oliva);
+            border-left: 5px solid var(--cor-sage);
             padding: 12px; 
             border-radius: 8px; 
             font-size: 0.9em;
@@ -283,10 +291,10 @@
         }
         
         .pix-box {
-            background: #fffdf5; /* Fundo creme bem leve */
+            background: #fffbf9; /* Fundo levemente terracota */
             padding: 20px; 
             border-radius: 15px; 
-            border: 2px dashed var(--cor-principal); 
+            border: 2px dashed var(--cor-terracota); 
             margin: 25px 0; 
             text-align: center;
             word-wrap: break-word; 
@@ -294,7 +302,7 @@
 
         .thank-you-header { animation: fadeIn 0.8s ease-out; margin-bottom: 20px; }
         .thank-you-icon { font-size: 3.5em; display: block; margin-bottom: 5px; animation: bounce 2s infinite; }
-        .thank-you-title { font-family: 'Playfair Display', serif; color: var(--cor-principal); font-size: 2.2em; margin: 0; line-height: 1.1; }
+        .thank-you-title { font-family: 'Playfair Display', serif; color: var(--cor-verde-oliva); font-size: 2.2em; margin: 0; line-height: 1.1; }
         
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
@@ -305,7 +313,7 @@
 
         .reminder-card {
             background-color: #fff;
-            border: 2px solid var(--cor-botao-acao); /* Borda Dourada */
+            border: 2px solid var(--cor-terracota);
             padding: 20px;
             border-radius: 15px;
             margin: 20px auto;
@@ -313,10 +321,10 @@
             position: relative;
             box-shadow: 0 5px 20px rgba(0,0,0,0.05);
         }
-        .reminder-title { font-family: 'Playfair Display', serif; color: var(--cor-principal); font-size: 1.3em; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
-        .reminder-info { font-size: 1em; margin: 8px 0; color: #555; }
-        .reminder-value { font-weight: bold; color: var(--cor-principal); font-size: 1.2em; }
-        .reminder-footer { margin-top: 15px; font-size: 0.8em; color: #999; border-top: 1px solid #ddd; padding-top: 10px; }
+        .reminder-title { font-family: 'Playfair Display', serif; color: var(--cor-verde-oliva); font-size: 1.3em; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+        .reminder-info { font-size: 1em; margin: 8px 0; color: var(--cor-cafe); }
+        .reminder-value { font-weight: bold; color: var(--cor-terracota); font-size: 1.2em; }
+        .reminder-footer { margin-top: 15px; font-size: 0.8em; color: var(--cor-sage); border-top: 1px solid #ddd; padding-top: 10px; }
 
     </style>
 </head>
@@ -340,7 +348,7 @@
     </div>
 
     <div class="couple-photo-container">
-        <img src="casal.jpg?v=2" onerror="this.src='casal.jpeg?v=2'" alt="Foto do Casal Mayssa" class="couple-photo">
+        <img src="casal.jpg?v=3" onerror="this.src='casal.jpeg?v=3'" alt="Foto do Casal Mayssa" class="couple-photo">
     </div>
     
     <div class="versiculo">
@@ -382,9 +390,9 @@
         
         <div class="pix-box">
             <h3 style="margin-top:0;">Chave Pix Abençoada:</h3>
-            <p style="font-size: 1.4em; font-weight: bold; color: var(--cor-principal); font-family: 'Roboto', sans-serif; margin: 10px 0;">1198739-3992</p>
+            <p style="font-size: 1.4em; font-weight: bold; color: var(--cor-verde-oliva); font-family: 'Roboto', sans-serif; margin: 10px 0;">1198739-3992</p>
             <p style="font-weight: bold; margin: 5px 0;">Mayssa Martha Francisco da Silva</p>
-            <p style="color: #666; font-size: 0.9em;"><small>(Confirme os dados antes de enviar)</small></p>
+            <p style="color: var(--cor-cafe); font-size: 0.9em;"><small>(Confirme os dados antes de enviar)</small></p>
         </div>
 
         <p>Qual item você escolhe para abençoar o nosso novo lar? (Opcional):</p>
@@ -401,7 +409,7 @@
         </div>
         
         <div style="margin: 20px auto; padding: 15px; background: #fff; border-radius: 15px; max-width: 600px; border: 1px solid #eee;">
-            <p style="font-size: 1.05em; line-height: 1.6; color: #555;">
+            <p style="font-size: 1.05em; line-height: 1.6; color: var(--cor-cafe);">
                 Não tenho palavras para agradecer... ❤️ <br><br>
                 Ver o seu carinho com a gente nos faz sentir o quanto somos amados. Que Deus multiplique infinitamente na sua vida! <br>
                 <strong>Obrigada por tanto!</strong>
@@ -416,19 +424,19 @@
             <p class="reminder-value" id="card-name">Nome</p>
             
             <p class="reminder-info" style="margin-top:15px;">Item Escolhido:</p>
-            <p class="reminder-value" id="card-item" style="color: var(--cor-principal);">Item</p>
+            <p class="reminder-value" id="card-item" style="color: var(--cor-terracota);">Item</p>
             
             <div class="reminder-footer">Chá da Mayssa • Deus Abençoe!</div>
         </div>
 
-        <p style="color: #999; font-size: 0.9em; margin-top: 15px;">📸 <em>Tire um print da tela para guardar!</em></p>
+        <p style="color: var(--cor-sage); font-size: 0.9em; margin-top: 15px;">📸 <em>Tire um print da tela para guardar!</em></p>
         
         <button class="nav-btn" onclick="window.print()" style="width: auto; display: inline-block; padding: 10px 25px; margin-top: 10px; font-size: 0.9em;">
             🖨️ Imprimir
         </button>
         
         <br><br>
-        <div class="versiculo-final" style="color: #888; background: #f5f5f5; border-radius: 10px; padding: 10px 20px; display: inline-block; font-size: 0.9em;">
+        <div class="versiculo-final" style="color: var(--cor-sage); background: #f5f5f5; border-radius: 10px; padding: 10px 20px; display: inline-block; font-size: 0.9em;">
             "Deus te abençoe grandemente!"
         </div>
     </div>
@@ -588,4 +596,3 @@
 
 </body>
 </html>
-
