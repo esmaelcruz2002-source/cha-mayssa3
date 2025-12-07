@@ -119,19 +119,14 @@
             z-index: 2; 
         }
 
-        .couple-photo {
-            max-width: 250px;
-            width: 65%;
-            aspect-ratio: 1 / 1; /* Garante o quadrado */
-            border-radius: 25px; /* Bordas arredondadas suaves */
+       .couple-photo {
+            max-width: 100%; /* A imagem pode ocupar até 100% da largura do container */
+            height: auto; /* A altura se ajusta automaticamente para não distorcer */
+            border-radius: 20px; /* Mantém as bordas arredondadas, mas seguindo o formato da foto */
             box-shadow: 0 15px 30px rgba(0,0,0,0.5);
             border: 4px solid rgba(255,255,255,0.95);
-            
-            /* --- A MÁGICA ACONTECE AQUI --- */
-            object-fit: cover; /* Preenche todo o espaço (sem barras brancas) */
-            object-position: center 25%; /* Foca nos rostos (evita cortar a cabeça) */
-            
-            background-color: #ddd; /* Apenas uma cor de fundo de segurança */
+            display: block; /* Garante que a imagem se comporte como um bloco */
+            margin: 0 auto; /* Centraliza a imagem horizontalmente */
         }
 
         /* --- CONTAINER PRINCIPAL --- */
@@ -583,6 +578,7 @@
 </body>
 
 </html>
+
 
 
 
