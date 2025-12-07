@@ -9,23 +9,20 @@
     <style>
         /* --- PALETA RÚSTICA "INCOMPARÁVEL" --- */
         :root { 
-            /* Cores Fortes (Mantidas) */
             --cor-verde-oliva: #566347;   
             --cor-sage-escuro: #868653;          
             --cor-cafe: #3A2116;          
             --cor-terracota: #8D6051;     
-
-            /* NOVOS FUNDOS VERDES ELEGANTES (Substituindo o branco) */
-            --cor-fundo: #EAF0E6;         /* Um verde "névoa" muito suave para o fundo geral */
-            --cor-card-bg: #F5F9F2;       /* Um verde ainda mais claro para os cartões/containers */
-            --cor-input-bg: #F2F7F0;      /* Fundo para inputs e botões claros */
+            --cor-fundo: #EAF0E6;         
+            --cor-card-bg: #F5F9F2;       
+            --cor-input-bg: #F2F7F0;      
         }
 
         html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: var(--cor-fundo); /* Fundo geral agora é verde suave */
+            background-color: var(--cor-fundo);
             color: var(--cor-cafe);
             margin: 0;
             padding: 0;
@@ -77,7 +74,6 @@
             padding: 0 10px;
         }
 
-        /* --- BLOCOS DE INFORMAÇÃO --- */
         .event-info {
             margin: 20px auto; 
             padding: 15px; 
@@ -91,7 +87,7 @@
         .event-info p { margin: 5px 0; font-size: 1.1em; text-shadow: 1px 1px 5px rgba(0,0,0,0.9); }
 
         .countdown-box {
-            background: var(--cor-card-bg); /* Fundo claro esverdeado */
+            background: rgba(255, 255, 255, 0.95);
             color: var(--cor-verde-oliva);
             padding: 8px 25px;
             border-radius: 50px;
@@ -132,16 +128,15 @@
             height: auto;         
             border-radius: 20px;  
             box-shadow: 0 15px 30px rgba(0,0,0,0.4);
-            border: 5px solid var(--cor-card-bg); /* Borda agora combina com o fundo */
+            border: 5px solid #fff; 
             display: block;
             margin: 0 auto;
         }
 
-        /* --- CONTAINER PRINCIPAL --- */
         .container {
             max-width: 800px;
             margin: -40px 15px 40px; 
-            background: var(--cor-card-bg); /* Fundo do cartão agora é o verde claro */
+            background: var(--cor-card-bg);
             padding: 30px 20px;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(58, 33, 22, 0.08);
@@ -151,12 +146,7 @@
             border-top: 5px solid var(--cor-terracota);
         }
 
-        h2 { 
-            font-family: 'Comfortaa', cursive; 
-            color: var(--cor-cafe);
-            font-weight: 700; 
-            font-size: 1.4em; 
-        }
+        h2 { font-family: 'Comfortaa', cursive; color: var(--cor-cafe); font-weight: 700; font-size: 1.4em; }
         
         .categoria-titulo {
             font-family: 'Playfair Display', serif;
@@ -164,7 +154,7 @@
             font-size: 1.5em;
             margin-top: 35px;
             margin-bottom: 15px;
-            border-bottom: 2px solid var(--cor-sage-escuro); /* Borda mais sutil */
+            border-bottom: 2px solid var(--cor-sage-escuro);
             padding-bottom: 5px;
             opacity: 0.8;
         }
@@ -174,7 +164,7 @@
             width: 100%;
             padding: 15px;
             border: 2px solid var(--cor-sage-escuro);
-            background-color: var(--cor-input-bg); /* Fundo do input esverdeado */
+            background-color: var(--cor-input-bg);
             border-radius: 12px;
             font-size: 16px; 
             box-sizing: border-box; 
@@ -184,14 +174,13 @@
         }
         input[type="text"]:focus { outline: none; border-color: var(--cor-terracota); background: #fff; }
 
-        /* BOTÕES DE NAVEGAÇÃO */
         .nav-btn {
             font-family: 'Comfortaa', cursive;
             display: block;
             width: 100%;
             padding: 18px;
             margin: 12px 0;
-            background: var(--cor-input-bg); /* Fundo esverdeado */
+            background: var(--cor-input-bg);
             border: 2px solid var(--cor-verde-oliva);
             color: var(--cor-verde-oliva);
             font-size: 1.05em;
@@ -201,13 +190,8 @@
             font-weight: bold;
             -webkit-tap-highlight-color: transparent; 
         }
-        .nav-btn:active, .nav-btn:hover { 
-            background: var(--cor-verde-oliva); 
-            color: white; 
-            transform: scale(0.98); 
-        } 
+        .nav-btn:active, .nav-btn:hover { background: var(--cor-verde-oliva); color: white; transform: scale(0.98); } 
 
-        /* BOTÃO VOLTAR */
         .btn-voltar {
             background: transparent;
             border: 2px solid var(--cor-sage-escuro);
@@ -224,8 +208,10 @@
             -webkit-tap-highlight-color: transparent;
         }
 
+        /* CONFIGURAÇÃO DA LISTA DE PRESENTES */
         .gift-grid {
             display: grid;
+            /* No PC, usa auto-fill normal */
             grid-template-columns: repeat(auto-fill, minmax(145px, 1fr)); 
             gap: 10px;
         }
@@ -237,7 +223,7 @@
             border-radius: 12px;
             text-align: center;
             cursor: pointer;
-            background-color: var(--cor-input-bg); /* Itens com fundo esverdeado */
+            background-color: var(--cor-input-bg);
             font-size: 0.95em;
             color: var(--cor-cafe);
             display: flex;
@@ -258,14 +244,13 @@
             transform: scale(1.02);
         }
         .gift-item.taken { 
-            background-color: rgba(134, 134, 83, 0.2); /* Sage bem clarinho */
+            background-color: rgba(134, 134, 83, 0.2); 
             color: var(--cor-sage-escuro); 
             pointer-events: none; 
             border-color: transparent;
             text-decoration: line-through;
         }
 
-        /* BOTÃO DE ENVIAR */
         .submit-btn {
             font-family: 'Comfortaa', cursive;
             background-color: var(--cor-terracota); 
@@ -285,7 +270,7 @@
         .hidden { display: none; }
         
         .warning-box {
-            background: #DEE6DB; /* Um verde sálvia mais intenso para destaque */
+            background: #DEE6DB;
             color: var(--cor-verde-oliva);
             border-left: 5px solid var(--cor-sage-escuro);
             padding: 12px; 
@@ -296,7 +281,7 @@
         }
         
         .pix-box {
-            background: #DEE6DB; /* Mesmo verde da warning box para consistência */
+            background: #DEE6DB; 
             padding: 20px; 
             border-radius: 15px; 
             border: 2px dashed var(--cor-terracota); 
@@ -317,7 +302,7 @@
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
         .reminder-card {
-            background-color: var(--cor-card-bg); /* Fundo claro esverdeado */
+            background-color: var(--cor-card-bg); 
             border: 2px solid var(--cor-terracota);
             padding: 20px;
             border-radius: 15px;
@@ -330,6 +315,21 @@
         .reminder-info { font-size: 1em; margin: 8px 0; color: var(--cor-cafe); }
         .reminder-value { font-weight: bold; color: var(--cor-terracota); font-size: 1.2em; }
         .reminder-footer { margin-top: 15px; font-size: 0.8em; color: var(--cor-sage-escuro); border-top: 1px solid rgba(134, 134, 83, 0.3); padding-top: 10px; }
+
+        /* --- AJUSTES PARA CELULAR (2 COLUNAS FORÇADAS) --- */
+        @media (max-width: 600px) {
+            .gift-grid {
+                /* Força 2 colunas no celular */
+                grid-template-columns: 1fr 1fr; 
+                gap: 8px;
+            }
+            .gift-item {
+                font-size: 0.9em; /* Letra um pouco menor */
+                padding: 10px 4px; /* Menos espaço interno */
+                min-height: 45px;
+            }
+            .event-info p { font-size: 1em; }
+        }
 
     </style>
 </head>
@@ -452,7 +452,7 @@
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
     import { getFirestore, collection, addDoc, onSnapshot, query, where } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
-    // --- SUAS CHAVES DO FIREBASE ---
+    // --- CHAVES ---
     const firebaseConfig = {
       apiKey: "AIzaSyB3JVacaEdp0xjHjd8faxmqPu3vJX9TS8M",
       authDomain: "cha-cozinha-mayssa.firebaseapp.com",
@@ -466,9 +466,9 @@
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
-    // --- CONTAGEM REGRESSIVA ---
+    // --- CONTAGEM ---
     function iniciarContagem() {
-        const dataCha = new Date(2026, 0, 25); // 25 Jan 2026
+        const dataCha = new Date(2026, 0, 25); 
         const hoje = new Date();
         const diferenca = dataCha - hoje;
         const dias = Math.ceil(diferenca / (1000 * 60 * 60 * 24));
@@ -479,7 +479,7 @@
     }
     iniciarContagem();
 
-    // --- LISTA DE PRESENTES ---
+    // --- LISTA ---
     const categorias = {
         "Eletrodomésticos": ["Liquidificador", "Ferro de Passar", "Sanduicheira", "Ventilador", "Cafeteira"],
         "Utensílios de Cozinha": ["Jogo de Panelas", "Panela de Pressão", "Frigideira", "Cuscuzeira", "Faqueiro (Dia a dia)", "Kit de Conchas (Silicone)", "Jogo de Xícaras", "Jogo de Copos", "Garrafa Térmica", "Assadeira (Tabuleiro)", "Forma de Bolo", "Forma de Pão", "Tábua de Corte", "Ralador", "Potes Plásticos", "Fruteira", "Escorredor de Louça", "Abridor de Latas", "Espremedor de Alho", "Espremedor de Limão", "Peneira", "Fouet (Batedor)", "Descascador de Legumes", "Concha de Sorvete", "Forminhas de Gelo", "Saladeira", "Açucareiro e Saleiro"],
@@ -490,7 +490,6 @@
     let itemSelecionado = null;
     let itensJaComprados = [];
 
-    // ATUALIZAÇÃO EM TEMPO REAL
     const q = query(collection(db, "presentes_escolhidos"));
     onSnapshot(q, (snapshot) => {
         itensJaComprados = [];
@@ -535,7 +534,6 @@
         }
     }
 
-    // FUNÇÕES DE AÇÃO
     window.selecionar = function(elemento, nome) {
         document.querySelectorAll('.gift-item').forEach(e => e.classList.remove('selected'));
         elemento.classList.add('selected');
