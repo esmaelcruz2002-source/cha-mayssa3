@@ -407,14 +407,25 @@
         <button class="nav-btn" onclick="goToSection(3)">✨ Enviar um Pix ou Presente Surpresa</button>
     </div>
 
-    <div id="section-2" class="hidden">
+   <div id="section-2" class="hidden">
         <button class="btn-voltar" onclick="goToSection(1)">⬅ Voltar</button>
         <h2>Escolha do Item</h2>
+        
+        <div style="background: rgba(86, 99, 71, 0.1); padding: 15px; border-radius: 10px; border-left: 5px solid var(--cor-verde-oliva); margin-bottom: 20px; font-size: 0.95em; color: var(--cor-cafe);">
+             <strong>Preferência de Cor:</strong> <br>
+            Se possível, priorize itens nas cores <b>Branco, Preto ou Bege</b> para combinar com o nosso novo lar! ❤️
+        </div>
+
         <p><strong>Descrição:</strong> Toque no item que deseja dar de presente.</p>
         
         <div class="warning-box">
             ⚠️ Selecione um item e clique em "Enviar Escolha". O item sairá da lista automaticamente.
         </div>
+
+        <div id="giftListContainer">Carregando lista...</div>
+
+        <button class="submit-btn" onclick="finalizarEnvio('Lista')">Enviar Escolha</button>
+    </div>
 
         <div id="giftListContainer">Carregando lista...</div>
 
@@ -633,4 +644,5 @@
 
 </body>
 </html>
+
 
