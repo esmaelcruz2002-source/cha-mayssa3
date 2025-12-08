@@ -56,15 +56,41 @@
             #thank-you-card { border: 2px solid #000; break-inside: avoid; } 
         }
 
+      /* 1. Substitua o bloco do h1 principal por este: */
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.8em;
+            font-size: 2.2em; /* Diminuí de 2.8 para 2.2 para caber melhor */
             margin: 0;
             font-weight: 700;
             letter-spacing: 1px;
             text-shadow: 2px 2px 15px rgba(0,0,0,0.8);
-            line-height: 1.1;
+            line-height: 1.2;
             color: #fff;
+            padding: 0 10px; /* Garante que não encoste nas bordas */
+        }
+
+        /* ... (seu código do meio continua igual) ... */
+
+        /* 2. Substitua o bloco @media (max-width: 600px) lá no final por este: */
+        @media (max-width: 600px) {
+            h1 { 
+                font-size: 1.8em; /* Tamanho exato para celular não quebrar errado */
+            }
+            
+            .gift-grid { 
+                display: grid;
+                grid-template-columns: 1fr 1fr !important; 
+                gap: 8px; 
+            }
+            
+            .gift-item { 
+                font-size: 0.85em; 
+                padding: 10px 2px; 
+                min-height: 50px; 
+                word-wrap: break-word; 
+            }
+            
+            .event-info p { font-size: 1em; }
         }
 
         .welcome-text {
@@ -607,3 +633,4 @@
 
 </body>
 </html>
+
