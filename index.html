@@ -56,41 +56,16 @@
             #thank-you-card { border: 2px solid #000; break-inside: avoid; } 
         }
 
-      /* 1. Substitua o bloco do h1 principal por este: */
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.2em; /* Diminuí de 2.8 para 2.2 para caber melhor */
+            font-size: 2.2em; /* Tamanho ajustado para não ficar gigante */
             margin: 0;
             font-weight: 700;
             letter-spacing: 1px;
             text-shadow: 2px 2px 15px rgba(0,0,0,0.8);
             line-height: 1.2;
             color: #fff;
-            padding: 0 10px; /* Garante que não encoste nas bordas */
-        }
-
-        /* ... (seu código do meio continua igual) ... */
-
-        /* 2. Substitua o bloco @media (max-width: 600px) lá no final por este: */
-        @media (max-width: 600px) {
-            h1 { 
-                font-size: 1.8em; /* Tamanho exato para celular não quebrar errado */
-            }
-            
-            .gift-grid { 
-                display: grid;
-                grid-template-columns: 1fr 1fr !important; 
-                gap: 8px; 
-            }
-            
-            .gift-item { 
-                font-size: 0.85em; 
-                padding: 10px 2px; 
-                min-height: 50px; 
-                word-wrap: break-word; 
-            }
-            
-            .event-info p { font-size: 1em; }
+            padding: 0 5px;
         }
 
         .welcome-text {
@@ -118,7 +93,7 @@
         .event-info p { margin: 5px 0; font-size: 1.1em; text-shadow: 1px 1px 5px rgba(0,0,0,0.9); }
 
         .countdown-box {
-            background: var(--cor-fundo-card); /* Usa a cor do cartão */
+            background: var(--cor-fundo-card); /* Fundo do cartão */
             color: var(--cor-verde-oliva);
             padding: 8px 25px;
             border-radius: 50px;
@@ -169,7 +144,7 @@
         .container {
             max-width: 800px;
             margin: -40px 15px 40px; 
-            background: var(--cor-fundo-card); /* MUDANÇA PRINCIPAL AQUI */
+            background: var(--cor-fundo-card); 
             padding: 30px 20px;
             border-radius: 20px;
             box-shadow: 0 15px 40px rgba(0,0,0,0.25);
@@ -207,14 +182,13 @@
         }
         input[type="text"]:focus { outline: none; border-color: var(--cor-terracota); background: #fff; }
 
-        /* BOTÕES DE NAVEGAÇÃO (FUNDO MAIS ESCURO PARA DESTACAR NO CARTÃO) */
         .nav-btn {
             font-family: 'Comfortaa', cursive;
             display: block;
             width: 100%;
             padding: 18px;
             margin: 12px 0;
-            background: #D8E0D5; /* Um tom um pouco mais escuro que o cartão */
+            background: #D8E0D5; /* Verde um pouco mais escuro que o cartão */
             border: 2px solid var(--cor-verde-oliva);
             color: var(--cor-verde-oliva);
             font-size: 1.05em;
@@ -242,7 +216,7 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* --- GRADE 2 COLUNAS --- */
+        /* --- LISTA: GRADE OBRIGATÓRIA 2 COLUNAS --- */
         .gift-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(145px, 1fr)); 
@@ -268,7 +242,6 @@
             transition: 0.2s;
         }
         .gift-item:hover { border-color: var(--cor-terracota); }
-        
         .gift-item.selected { 
             background-color: var(--cor-terracota); 
             color: white; 
@@ -304,7 +277,7 @@
         .hidden { display: none; }
         
         .warning-box {
-            background: #D8E0D5; /* Verde sálvia mais forte */
+            background: #D8E0D5; /* Verde sálvia visível */
             color: var(--cor-verde-oliva);
             border-left: 5px solid var(--cor-sage-escuro);
             padding: 12px; 
@@ -351,6 +324,12 @@
         .reminder-footer { margin-top: 15px; font-size: 0.8em; color: var(--cor-sage-escuro); border-top: 1px solid rgba(134, 134, 83, 0.3); padding-top: 10px; }
 
         @media (max-width: 600px) {
+            h1 { 
+                font-size: 1.7em; /* Tamanho do Título ajustado */
+                line-height: 1.1;
+                margin-bottom: 10px;
+            }
+
             .gift-grid { 
                 display: grid;
                 grid-template-columns: 1fr 1fr !important; /* Força 2 colunas */
@@ -386,7 +365,7 @@
     </div>
 
     <div class="couple-photo-container">
-        <img src="casal.jpg?v=6" onerror="this.src='casal.jpeg?v=6'" alt="Foto do Casal Mayssa" class="couple-photo">
+        <img src="casal.jpg?v=7" onerror="this.src='casal.jpeg?v=7'" alt="Foto do Casal Mayssa" class="couple-photo">
     </div>
     
     <div class="versiculo">
@@ -407,12 +386,12 @@
         <button class="nav-btn" onclick="goToSection(3)">✨ Enviar um Pix ou Presente Surpresa</button>
     </div>
 
-   <div id="section-2" class="hidden">
+    <div id="section-2" class="hidden">
         <button class="btn-voltar" onclick="goToSection(1)">⬅ Voltar</button>
         <h2>Escolha do Item</h2>
         
         <div style="background: rgba(86, 99, 71, 0.1); padding: 15px; border-radius: 10px; border-left: 5px solid var(--cor-verde-oliva); margin-bottom: 20px; font-size: 0.95em; color: var(--cor-cafe);">
-             <strong>Preferência de Cor:</strong> <br>
+            🎨 <strong>Preferência de Cor:</strong> <br>
             Se possível, priorize itens nas cores <b>Branco, Preto ou Bege</b> para combinar com o nosso novo lar! ❤️
         </div>
 
@@ -421,11 +400,6 @@
         <div class="warning-box">
             ⚠️ Selecione um item e clique em "Enviar Escolha". O item sairá da lista automaticamente.
         </div>
-
-        <div id="giftListContainer">Carregando lista...</div>
-
-        <button class="submit-btn" onclick="finalizarEnvio('Lista')">Enviar Escolha</button>
-    </div>
 
         <div id="giftListContainer">Carregando lista...</div>
 
@@ -530,21 +504,18 @@
     };
 
     let itemSelecionado = null;
-    let item = [];
+    let itensJaComprados = [];
 
     const q = query(collection(db, "presentes_escolhidos"));
     onSnapshot(q, (snapshot) => {
-        let itensJaComprados = [];
+        itensJaComprados = [];
         snapshot.forEach((doc) => {
             itensJaComprados.push(doc.data().item);
         });
-        
-        // Passar a lista atualizada para a função de renderização
-        renderizarLista(itensJaComprados); 
+        renderizarLista(); 
     });
 
-    // Função agora recebe a lista de itens comprados
-    function renderizarLista(itensJaComprados = []) {
+    function renderizarLista() {
         const containerLista = document.getElementById('giftListContainer');
         containerLista.innerHTML = "";
 
@@ -644,5 +615,3 @@
 
 </body>
 </html>
-
-
